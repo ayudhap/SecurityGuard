@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserFriendsRequestEntity {
-	private List<String> friends;
+	private List<Long> friends;
 }

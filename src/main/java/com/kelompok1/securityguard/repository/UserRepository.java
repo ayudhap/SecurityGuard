@@ -16,7 +16,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 	@Query(value = "SELECT * FROM data_user WHERE no_telp = ?1", nativeQuery = true)
 	List<UserEntity> findAllByNoTelp(Set<String> notelp);
 
-	UserEntity findByNoTelp(String notelp);
+	UserEntity findByNoTelp(long notelp);
 
 	UserEntity findByEmail(String email);
 }
