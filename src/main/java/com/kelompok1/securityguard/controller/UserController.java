@@ -1,10 +1,6 @@
 package com.kelompok1.securityguard.controller;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,9 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.gson.Gson;
 import com.kelompok1.securityguard.config.JwtTokenUtil;
 import com.kelompok1.securityguard.entity.UserEntity;
-import com.kelompok1.securityguard.repository.FriendsRepository;
-import com.kelompok1.securityguard.request.UserFriendsListRequestEntity;
-import com.kelompok1.securityguard.request.UserFriendsRequestEntity;
 import com.kelompok1.securityguard.service.UserService;
 
 @RestController
@@ -46,7 +38,7 @@ public class UserController {
 
 	@PostMapping("/login")
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody UserEntity userEntity) throws Exception {
-		authenticate(userEntity.getEmail(), userEntity.getKataSandi());
+		authenticate(userEntity.getEmail(), userEntity.getEmail());
 
 		final UserDetails userDetails = userService.loadUserByUsername(userEntity.getEmail());
 		UserEntity user = userService.getUserByEmail(userEntity.getEmail());

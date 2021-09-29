@@ -3,6 +3,7 @@ package com.kelompok1.securityguard.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,13 +30,18 @@ public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private long nik;
+	@Column(length = 255)
 	private String nama;
+	@Column(length = 50)
 	private String ttl;
+	@Column(length = 255)
 	private String email;
-	private String noTelp;
+	@Column(unique = true)
+	private long noTelp;
+	@Column(length = 255)
 	private String alamat;
 	private String kataSandi;
+	@Column(length = 50)
 	private String role;
 	
 	@ManyToMany

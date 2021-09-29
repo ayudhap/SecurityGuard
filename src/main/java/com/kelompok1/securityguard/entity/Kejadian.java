@@ -1,5 +1,6 @@
 package com.kelompok1.securityguard.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,8 +21,9 @@ public class Kejadian {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@Column(length = 100)
 	private String kejadian;
-	private long level;
-	private String lot;
-	private String lat;
+	private int level;
+	private double lot;
+	private double lat;
 }
