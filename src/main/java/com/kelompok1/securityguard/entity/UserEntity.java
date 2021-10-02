@@ -29,7 +29,7 @@ public class UserEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long Id;
 	@Column(length = 255)
 	private String nama;
 	@Column(length = 50)
@@ -45,7 +45,7 @@ public class UserEntity {
 	private String role;
 	
 	@ManyToMany
-	@JoinTable(name = "teman", joinColumns = @JoinColumn(referencedColumnName = "userId"), inverseJoinColumns = @JoinColumn(referencedColumnName = "temanId"))
+	@JoinTable(name = "friends", joinColumns = @JoinColumn(name = "userId") , inverseJoinColumns = @JoinColumn(name = "friendId"))
 	private Set<UserEntity> friends;
 	
 	public void addUserFriends(UserEntity user) {

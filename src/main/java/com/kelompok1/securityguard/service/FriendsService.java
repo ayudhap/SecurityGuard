@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import com.kelompok1.securityguard.entity.Friends;
 import com.kelompok1.securityguard.entity.UserEntity;
 import com.kelompok1.securityguard.repository.FriendsRepository;
 import com.kelompok1.securityguard.repository.UserRepository;
@@ -140,25 +141,25 @@ public class FriendsService implements FriendsRepository {
 	}
 
 	@Override
-	public List<FriendsRepository> findAll() {
+	public List<Friends> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<FriendsRepository> findAll(Sort sort) {
+	public List<Friends> findAll(Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<FriendsRepository> findAllById(Iterable<Long> ids) {
+	public List<Friends> findAllById(Iterable<Long> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends FriendsRepository> List<S> saveAll(Iterable<S> entities) {
+	public <S extends Friends> List<S> saveAll(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -170,19 +171,19 @@ public class FriendsService implements FriendsRepository {
 	}
 
 	@Override
-	public <S extends FriendsRepository> S saveAndFlush(S entity) {
+	public <S extends Friends> S saveAndFlush(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends FriendsRepository> List<S> saveAllAndFlush(Iterable<S> entities) {
+	public <S extends Friends> List<S> saveAllAndFlush(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteAllInBatch(Iterable<FriendsRepository> entities) {
+	public void deleteAllInBatch(Iterable<Friends> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -200,43 +201,43 @@ public class FriendsService implements FriendsRepository {
 	}
 
 	@Override
-	public FriendsRepository getOne(Long id) {
+	public Friends getOne(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public FriendsRepository getById(Long id) {
+	public Friends getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends FriendsRepository> List<S> findAll(Example<S> example) {
+	public <S extends Friends> List<S> findAll(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends FriendsRepository> List<S> findAll(Example<S> example, Sort sort) {
+	public <S extends Friends> List<S> findAll(Example<S> example, Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Page<FriendsRepository> findAll(Pageable pageable) {
+	public Page<Friends> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends FriendsRepository> S save(S entity) {
+	public <S extends Friends> S save(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Optional<FriendsRepository> findById(Long id) {
+	public Optional<Friends> findById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -260,7 +261,7 @@ public class FriendsService implements FriendsRepository {
 	}
 
 	@Override
-	public void delete(FriendsRepository entity) {
+	public void delete(Friends entity) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -272,7 +273,7 @@ public class FriendsService implements FriendsRepository {
 	}
 
 	@Override
-	public void deleteAll(Iterable<? extends FriendsRepository> entities) {
+	public void deleteAll(Iterable<? extends Friends> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -284,25 +285,25 @@ public class FriendsService implements FriendsRepository {
 	}
 
 	@Override
-	public <S extends FriendsRepository> Optional<S> findOne(Example<S> example) {
+	public <S extends Friends> Optional<S> findOne(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends FriendsRepository> Page<S> findAll(Example<S> example, Pageable pageable) {
+	public <S extends Friends> Page<S> findAll(Example<S> example, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends FriendsRepository> long count(Example<S> example) {
+	public <S extends Friends> long count(Example<S> example) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public <S extends FriendsRepository> boolean exists(Example<S> example) {
+	public <S extends Friends> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
 	}
