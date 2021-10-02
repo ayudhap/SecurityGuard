@@ -9,7 +9,7 @@ import com.kelompok1.securityguard.entity.Friends;
 import com.kelompok1.securityguard.request.UserFriendsListRequestEntity;
 import com.kelompok1.securityguard.request.UserFriendsRequestEntity;
 
-public interface FriendsRepository extends JpaRepository<Friends, Long> {
+public interface FriendsRepository {
 
 	ResponseEntity<Map<String, Object>> addUserFriends(UserFriendsRequestEntity userFriendsRequestEntity);
 

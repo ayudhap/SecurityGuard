@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -46,23 +48,27 @@ public class UserController {
 
 		return ResponseEntity.ok(token);
 	}
-	
+
 	@PostMapping("/register")
-	public ResponseEntity<?> createUser(@ModelAttribute(value="data") String dataJSON) throws IOException{		
+	public ResponseEntity<?> createUser(@ModelAttribute(value = "data") String dataJSON) throws IOException {
 		UserEntity user = new Gson().fromJson(dataJSON, UserEntity.class);
 
 		BCryptPasswordEncoder passwordEncode = new BCryptPasswordEncoder();
 		user.setKataSandi(passwordEncode.encode(user.getKataSandi()));
-		return ResponseEntity.status(HttpStatus.OK)
-				.contentType(MediaType.APPLICATION_JSON)
+		return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON)
 				.body(this.userService.save(user));
 	}
-	
-	private void authenticate(String email, String kataSandi) throws Exception {
+
+	@PostMapping("/authenticate")
+	private void authenticate(String email, String kata_sandi) throws Exception {
 		try {
-			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, kataSandi));
-		} catch (Exception e) {
-			throw new Exception(e);
+			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, kata_sandi));
+		} catch (DisabledException e) {
+			// TODO: handle exception
+			throw new Exception("USER DISABLED", e);
+		} catch (BadCredentialsException e) {
+			// TODO: handle exception
+			throw new Exception("INVALID_CREDENTIALS", e);
 		}
 	}
 }
