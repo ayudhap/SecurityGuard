@@ -40,7 +40,7 @@ public class UserController {
 
 	@PostMapping("/login")
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody UserEntity userEntity) throws Exception {
-		authenticate(userEntity.getEmail(), userEntity.getEmail());
+		authenticate(userEntity.getEmail(), userEntity.getKataSandi());
 
 		final UserDetails userDetails = userService.loadUserByUsername(userEntity.getEmail());
 		UserEntity user = userService.getUserByEmail(userEntity.getEmail());
@@ -59,10 +59,9 @@ public class UserController {
 				.body(this.userService.save(user));
 	}
 
-	@PostMapping("/authenticate")
-	private void authenticate(String email, String kata_sandi) throws Exception {
+	private void authenticate(String email, String kataSandi) throws Exception {
 		try {
-			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, kata_sandi));
+			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, kataSandi));
 		} catch (DisabledException e) {
 			// TODO: handle exception
 			throw new Exception("USER DISABLED", e);
