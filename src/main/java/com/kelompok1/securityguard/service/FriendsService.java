@@ -30,7 +30,7 @@ public class FriendsService implements FriendsRepository {
 	@Autowired
 	UserRepository userRepository;
 		
-	private UserEntity saveIfNotExist(long notelp) {
+	private UserEntity saveIfNotExist(String notelp) {
 
 		UserEntity existingUser = this.userRepository.findByNoTelp(notelp);
 		if (existingUser == null) {
@@ -62,8 +62,8 @@ public class FriendsService implements FriendsRepository {
 			return new ResponseEntity<Map<String, Object>>(result, HttpStatus.BAD_REQUEST);
 		}
 
-		long notelp1 = userFriendsRequestEntity.getFriends().get(0);
-		long notelp2 = userFriendsRequestEntity.getFriends().get(1);
+		String notelp1 = userFriendsRequestEntity.getFriends().get(0);
+		String notelp2 = userFriendsRequestEntity.getFriends().get(1);
 
 		if (notelp1 == notelp2) {
 			result.put("Info : ", "Cannot make friends, if users are same");
@@ -99,7 +99,7 @@ public class FriendsService implements FriendsRepository {
 		}
 
 		UserEntity user = this.userRepository.findByEmail(userFriendsListRequestEntity.getNoTelp());
-		List<Long> friendList = user.getFriends().stream().map(UserEntity::getNoTelp).collect(Collectors.toList());
+		List<String> friendList = user.getFriends().stream().map(UserEntity::getNoTelp).collect(Collectors.toList());
 
 		result.put("success", true);
 		result.put("friends", friendList);
@@ -124,7 +124,7 @@ public class FriendsService implements FriendsRepository {
 		user1 = this.userRepository.findByNoTelp(userFriendsRequestEntity.getFriends().get(0));
 		user2 = this.userRepository.findByNoTelp(userFriendsRequestEntity.getFriends().get(1));
 
-		if (user1.getEmail().equals(user2.getEmail())) {
+		if (user1.getNoTelp().equals(user2.getNoTelp())) {
 			result.put("Info : ", "Both users are same");
 			return new ResponseEntity<Map<String, Object>>(result, HttpStatus.BAD_REQUEST);
 		}

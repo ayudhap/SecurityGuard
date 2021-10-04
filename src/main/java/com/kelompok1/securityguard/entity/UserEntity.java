@@ -37,7 +37,7 @@ public class UserEntity {
 	@Column(length = 255)
 	private String email;
 	@Column(unique = true)
-	private long noTelp;
+	private String noTelp;
 	@Column(length = 255)
 	private String alamat;
 	private String kataSandi;
