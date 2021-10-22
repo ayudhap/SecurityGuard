@@ -14,6 +14,7 @@ import com.kelompok1.securityguard.request.UserFriendsListRequestEntity;
 import com.kelompok1.securityguard.request.UserFriendsRequestEntity;
 
 @RestController
+@RequestMapping("/friends")
 public class FriendsController {
 
 	@Autowired

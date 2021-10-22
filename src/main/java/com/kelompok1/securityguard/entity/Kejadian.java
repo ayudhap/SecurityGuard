@@ -24,6 +24,6 @@ public class Kejadian {
 	@Column(length = 100)
 	private String kejadian;
 	private int level;
-	private double lot;
+	private double lon;
 	private double lat;
 }

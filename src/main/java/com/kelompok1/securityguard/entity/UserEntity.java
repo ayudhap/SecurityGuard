@@ -30,10 +30,16 @@ public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long Id;
+	@Column(length = 50)
+	private long nik;
 	@Column(length = 255)
 	private String nama;
 	@Column(length = 50)
-	private String ttl;
+	private String jenisKelamin;
+	@Column(length = 255)
+	private String tempatLahir;
+	@Column(length = 255)
+	private String tanggalLahir;
 	@Column(length = 255)
 	private String email;
 	@Column(unique = true)

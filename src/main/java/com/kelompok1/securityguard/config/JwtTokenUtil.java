@@ -56,10 +56,19 @@ public class JwtTokenUtil implements Serializable {
 
 	/* JIKA KITA LOGIN DAN TIDAK MEMPUNYAI TOKEN */
 
-	public String generateToken(UserDetails userDetails, String jk, long id) {
+	public String generateToken(UserDetails userDetails, String jk, long id, String nama, String tempatLahir,
+			String tanggalLahir, String noTelp, String email, String alamat, long nik, String kataSandi) {
 		Map<String, Object> claims = new HashMap<String, Object>();
 		claims.put("jeniskelamin", jk);
 		claims.put("iduser", String.valueOf(id));
+		claims.put("nama", nama);
+		claims.put("tempatLahir", tempatLahir);
+		claims.put("tanggalLahir", tanggalLahir);
+		claims.put("noTelp", noTelp);
+		claims.put("email", email);
+		claims.put("alamat", alamat);
+		claims.put("nik", nik);
+		claims.put("kataSandi", kataSandi);
 		return doGenerateToken(claims, userDetails.getUsername());
 	}
 

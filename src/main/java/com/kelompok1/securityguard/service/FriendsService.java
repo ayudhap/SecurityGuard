@@ -98,8 +98,8 @@ public class FriendsService implements FriendsRepository {
 			return new ResponseEntity<Map<String, Object>>(result, HttpStatus.BAD_REQUEST);
 		}
 
-		UserEntity user = this.userRepository.findByEmail(userFriendsListRequestEntity.getNoTelp());
-		List<String> friendList = user.getFriends().stream().map(UserEntity::getNoTelp).collect(Collectors.toList());
+		UserEntity user = this.userRepository.findByNoTelp(userFriendsListRequestEntity.getNoTelp());
+		List<String> friendList = user.getFriends().stream().map(UserEntity::getNama).collect(Collectors.toList());
 
 		result.put("success", true);
 		result.put("friends", friendList);
